@@ -99,9 +99,11 @@ const startQuiz = () => {
 	quiz.innerHTML = "";
 	previousScore = localStorage.getItem("previous-score");
 
-	let scoreEl = document.createElement("p");
-	scoreEl.textContent = `Previous score: ${localStorage.getItem("previous-score")}%`;
-	quiz.appendChild(scoreEl);
+	if (previousScore) {
+		let scoreEl = document.createElement("p");
+		scoreEl.textContent = `Previous score: ${localStorage.getItem("previous-score")}%`;
+		quiz.appendChild(scoreEl);
+	}
 
 	const startBtn = document.createElement("button");
 	startBtn.setAttribute(`id`, `start-quiz`);
